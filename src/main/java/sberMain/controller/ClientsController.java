@@ -1,11 +1,10 @@
-package controller;
+package sberMain.controller;
 
-import AOP.ExecutionTimeAnno;
-import clients.entity.Client;
+import sberMain.AOP.ExecutionTimeAnno;
+import sberMain.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import repository.InterfaceDAO.ClientsServicesDAO;
-import service.ClientService;
+import sberMain.service.ClientService;
 
 
 import java.util.List;

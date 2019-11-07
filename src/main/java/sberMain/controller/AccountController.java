@@ -1,17 +1,14 @@
-package controller;
+package sberMain.controller;
 
-import AOP.ExecutionTimeAnno;
+import org.springframework.web.bind.annotation.*;
+import sberMain.AOP.ExecutionTimeAnno;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.stereotype.Controller;
-import service.AccountService;
+import sberMain.service.AccountService;
 
 
-@Controller
+@RestController
 @RequestMapping("amount")
 public class AccountController {
 

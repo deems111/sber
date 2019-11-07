@@ -1,15 +1,18 @@
-package clients.entity;
+package sberMain.entity;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "account")
+@Table(name = "ACCOUNT")
 public class Account {
 
+    @Column()
     private double balance;
 
+    @Column()
     private long accountNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "inn")
     private Client client;
 

@@ -1,17 +1,19 @@
-package clients.entity;
+package sberMain.entity;
+
+import sberMain.entity.Account;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "client")
+@Table(name = "CLIENT")
 public class Client {
 
     @Id
     @Column()
     private long inn;
 
-    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "client")
     private List<Account> accounts;
 
     public Client() {}

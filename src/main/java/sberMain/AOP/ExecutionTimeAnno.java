@@ -1,4 +1,4 @@
-package AOP;
+package sberMain.AOP;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

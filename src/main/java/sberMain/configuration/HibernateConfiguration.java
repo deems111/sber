@@ -1,4 +1,4 @@
-package Configuration;
+package sberMain.configuration;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
-import javax.activation.DataSource;
+import javax.sql.*;
 import java.util.Properties;
 
 @Configuration
@@ -35,7 +35,7 @@ public class HibernateConfiguration {
         dataSource.setUrl(hibernateProperty.getConnection().getUrl());
         dataSource.setUsername(hibernateProperty.getConnection().getUsername());
         dataSource.setPassword(hibernateProperty.getConnection().getPassword());
-        return dataSource;
+        return (DataSource) dataSource;
     }
 
     @Bean

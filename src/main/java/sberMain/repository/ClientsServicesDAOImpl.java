@@ -1,10 +1,10 @@
-package repository;
+package sberMain.repository;
 
-import clients.entity.Client;
+import sberMain.entity.Client;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-import repository.InterfaceDAO.ClientsServicesDAO;
+import sberMain.repository.InterfaceDAO.ClientsServicesDAO;
 
 import java.util.List;
 

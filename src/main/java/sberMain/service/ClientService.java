@@ -1,9 +1,9 @@
-package service;
+package sberMain.service;
 
-import clients.entity.Client;
+import sberMain.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.InterfaceDAO.ClientsServicesDAO;
+import sberMain.repository.InterfaceDAO.ClientsServicesDAO;
 
 import java.util.List;
 

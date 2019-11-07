@@ -1,6 +1,6 @@
-package repository.InterfaceDAO;
+package sberMain.repository.InterfaceDAO;
 
-import clients.entity.Account;
+import sberMain.entity.Account;
 
 import java.util.List;
 
