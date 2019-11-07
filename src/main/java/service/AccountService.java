@@ -2,10 +2,12 @@ package service;
 
 import clients.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.InterfaceDAO.AccountServicesDAO;
 
 import java.util.List;
 
+@Service
 public class AccountService {
 
     private AccountServicesDAO accountServicesDAO;

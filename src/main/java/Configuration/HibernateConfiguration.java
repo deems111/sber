@@ -2,16 +2,18 @@ package Configuration;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
-import javax.sql.DataSource;
+import javax.activation.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableConfigurationProperties(HibernateProperty.class)
 public class HibernateConfiguration {
 
     private HibernateProperty hibernateProperty;
@@ -22,15 +24,21 @@ public class HibernateConfiguration {
     }
 
     @Bean
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        return new HibernateTransactionManager(sessionFactory);
+    }
+
+    @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(hibernateProperty.getConnection().getDriverClass());
-        dataSource.setUrl(hibernateProperty.);
-        dataSource.setUsername(hibernateProperty.);
+        dataSource.setUrl(hibernateProperty.getConnection().getUrl());
+        dataSource.setUsername(hibernateProperty.getConnection().getUsername());
         dataSource.setPassword(hibernateProperty.getConnection().getPassword());
         return dataSource;
     }
 
+    @Bean
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", hibernateProperty.getDialect());
@@ -47,10 +55,5 @@ public class HibernateConfiguration {
         sessionFactory.setPackagesToScan("trainingneuralnetwork.entity");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
-    }
-
-    @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        return new HibernateTransactionManager(sessionFactory);
     }
 }
