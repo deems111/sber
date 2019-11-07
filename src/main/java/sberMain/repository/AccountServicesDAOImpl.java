@@ -32,7 +32,7 @@ public class AccountServicesDAOImpl implements AccountServicesDAO {
     }
 
     @Override
-    public List<Account> findByInn(long inn) {
+    public List<Account> findByInn(String inn) {
         Query query =  sessionFactory.getCurrentSession()
                 .createQuery("FROM Client WHERE inn = :inn");
         query.setParameter("inn", inn);
@@ -40,11 +40,16 @@ public class AccountServicesDAOImpl implements AccountServicesDAO {
     }
 
     @Override
-    public double getAmountSumByInn(long inn) {
+    public double getAmountSumByInn(String inn) throws Exception {
         double sum = 0;
         List<Account> accounts =  findByInn(inn);
-        for (Account account: accounts) {
-            sum+=account.getBalance();
+        try {
+            for (Account account : accounts) {
+                sum += Double.valueOf(account.getBalance());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         }
         return sum;
     }

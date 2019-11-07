@@ -8,5 +8,5 @@ public interface ClientsServicesDAO {
 
         void save(Client client);
         List<Client> findAll();
-        Client findByInn(long id);
+        Client findByInn(String id);
 }

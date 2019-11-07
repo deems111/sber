@@ -8,6 +8,6 @@ public interface AccountServicesDAO {
 
     void save(Account account);
     List<Account> findAll();
-    List<Account> findByInn(long  inn);
-    double getAmountSumByInn(long inn);
+    List<Account> findByInn(String  inn);
+    double getAmountSumByInn(String inn) throws Exception;
 }

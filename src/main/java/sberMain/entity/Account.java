@@ -7,28 +7,31 @@ import javax.persistence.*;
 public class Account {
 
     @Column()
-    private double balance;
+    private String balance;
 
     @Column()
-    private long accountNumber;
+    private String accountNumber;
+
+    @Column()
+    private String inn;
 
     @ManyToOne()
     @JoinColumn(name = "inn")
     private Client client;
 
-    public double getBalance() {
+    public String getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
 
-    public long getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(long accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -38,5 +41,13 @@ public class Account {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public String getInn() {
+        return inn;
+    }
+
+    public void setInn(String inn) {
+        this.inn = inn;
     }
 }
