@@ -1,24 +1,11 @@
-spring:
-  datasource:
-    url: jdbc:h2:mem:example-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    platform: h2
-    username: sa
-    password: sa
-    driverClassName: org.h2.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: true
-        format_sql: true
-
-  h2:
-    console:
-      enabled: true
-      path: /sber
-      settings:
-        trace: false
-        web-allow-others: false
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  connection:
+    driver_class: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sber
+    username: root
+    password: root
+  default_schema: Client
+  show_sql: true
+  enable_lazy_load_no_trans: true
+  ddl_auto: update

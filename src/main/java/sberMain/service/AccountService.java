@@ -21,11 +21,11 @@ public class AccountService {
         return accountServicesDAO.findAll();
     }
 
-    public List<Account> getByInn(long inn) {
+    public List<Account> getByInn(String inn) {
         return accountServicesDAO.findByInn(inn);
     }
 
-    public double getSumByInn(long inn) {
+    public double getSumByInn(String inn) throws Exception {
         return accountServicesDAO.getAmountSumByInn(inn);
     }
 

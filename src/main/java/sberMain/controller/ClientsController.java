@@ -11,7 +11,6 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("clients")
 public class ClientsController {
 
     private ClientService clientService;
@@ -21,17 +20,15 @@ public class ClientsController {
         this.clientService = clientService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value="clients", method = RequestMethod.GET)
     @ExecutionTimeAnno
     public List<Client> list() {
         return clientService.getAll();
     }
 
-    @RequestMapping(value="/{inn}", method = RequestMethod.GET)
-    @ResponseBody
     @ExecutionTimeAnno
-    public Client findById(@PathVariable long inn) {
+    @RequestMapping(value="clients/{inn}", method = RequestMethod.GET)
+    public Client findById(@PathVariable String inn) {
         return clientService.getByInn(inn);
     }
 

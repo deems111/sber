@@ -21,7 +21,7 @@ public class ClientService {
         return clientsServicesDAO.findAll();
     }
 
-    public Client getByInn(long inn) {
+    public Client getByInn(String inn) {
         return clientsServicesDAO.findByInn(inn);
     }
 

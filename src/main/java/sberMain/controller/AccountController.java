@@ -9,7 +9,6 @@ import sberMain.service.AccountService;
 
 
 @RestController
-@RequestMapping("amount")
 public class AccountController {
 
     private AccountService accountService;
@@ -19,12 +18,10 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @RequestMapping(value = "/{inn}", method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value="clients/{inn}", method = RequestMethod.GET)
     @ExecutionTimeAnno
-    public double getSumByInn(@PathVariable long inn) {
+    public double getSumByInn(@PathVariable String inn) throws Exception {
         return accountService.getSumByInn(inn);
     }
-
 
 }

@@ -29,7 +29,7 @@ public class ClientsServicesDAOImpl implements ClientsServicesDAO {
     }
 
     @Override
-    public Client findByInn(long inn) {
+    public Client findByInn(String inn) {
         Query query =  sessionFactory.getCurrentSession()
                 .createQuery("FROM Client WHERE inn = :inn");
         query.setParameter("inn", inn);
